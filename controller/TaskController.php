@@ -1,6 +1,6 @@
 <?php
 require(ROOT . "model/TaskModel.php");
-
+require(ROOT . "model/ListModel.php");
 
 function index()
 {

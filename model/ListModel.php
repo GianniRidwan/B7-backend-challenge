@@ -56,4 +56,19 @@ function updateL($id, $list_name) {
     }
     $conn = null;
 }
+
+function destroyL($id) {
+    try {
+        $conn = openDatabaseConnection();
+        $sql = "DELETE FROM list WHERE id = :id";
+        $query = $conn->prepare($sql);
+        $query->bindParam(":id", $id);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
+
 ?>

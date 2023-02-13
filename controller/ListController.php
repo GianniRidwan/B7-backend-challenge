@@ -26,17 +26,13 @@ function updateList($id) {
     header("location: ".URL."list/index");
 }
 
-function delete($id){
-    //1. Haal een medewerker op met een specifiek id en sla deze op in een variable
-
-    //2. Geef een view weer voor het verwijderen en geef de variable met medewerker hieraan mee
-
+function deleteList($id) {
+    $getList = getList($id);
+    render("components/deleteList", array("list" =>$getList));
 }
 
-function destroy($id){
-    //1. Delete een medewerker uit de database
-
-	//2. Bouw een url en redirect hierheen
-    
+function destroyList($id) {
+    destroyL($id);
+    header("location: ".URL."list/index");
 }
 ?>

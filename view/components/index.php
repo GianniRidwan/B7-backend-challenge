@@ -8,7 +8,8 @@
     <h1 class="p-1 bg-primary text-capitalize text-white rounded-top" style="color: blck;">
     &nbsp; 
     <?php echo $list["list_name"]; ?>
-    <a class="btn text-primary " href= "<?= URL ?>list/editList/<?= $list['id'] ?>"><i class="far fa-edit text-white"></i></a>
+    <a class="p-2 btn text-primary" href="<?=URL?>list/editList/<?=$list['id']?>"><i class="far fa-edit text-white"></i></a>
+    <a class="p-2 btn text-primary" href="<?=URL?>list/deleteList/<?=$list['id']?>"><i class="far fa-trash-alt text-white"></i></a>
 
 </h1>
 </div>

@@ -5,6 +5,6 @@
 	<label for="" class="lead">List Name</label>
 	<input type="text" name="list_name" class="form-control">
 </div>
-<input type="submit" class="btn text-white-50 bg-dark" value="Add New List">
+<input type="submit" class="btn text-white bg-dark" value="Add New List">
 </form>
 </div>

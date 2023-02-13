@@ -16,25 +16,14 @@ function addList() {
     render("components/createList");
 }
 
-function store() {
-    //1. Maak een nieuwe medewerker aan met de data uit het formulier en sla deze op in de database
-
-    //2. Bouw een url op en redirect hierheen
-
+function editList($id) {
+    $getList = getList($id);
+    render("components/updateList", array("list" => $getList));
 }
 
-function edit($id) {
-    //1. Haal een medewerker op met een specifiek id en sla deze op in een variable
-
-    //2. Geef een view weer voor het updaten en geef de variable met medewerker hieraan mee
-
-}
-
-function update() {
-    //1. Update een bestaand persoon met de data uit het formulier en sla deze op in de database
-
-    //2. Bouw een url en redirect hierheen
-
+function updateList($id) {
+    updateL($id, $_POST["list_name"]);
+    header("location: ".URL."list/index");
 }
 
 function delete($id){

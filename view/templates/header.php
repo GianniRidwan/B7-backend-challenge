@@ -15,5 +15,5 @@
 <main class="flex-shrink-0">
 <div id="container">
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5 justify-content-center">
-	<span class="w-25 navbar-text bg-danger font-weight-bold text-center"> To Do List </span>
+	<span class="w-25 navbar-text bg-primary font-weight-bold text-center text-white rounded"> To Do List </span>
 </nav>

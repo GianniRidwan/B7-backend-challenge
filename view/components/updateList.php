@@ -1,6 +1,10 @@
-	
-	<h1>Persoon wijzigen</h1>
-	<form name="update" method="post" action="<?=URL?>employee/update">
-	    <input type="hidden" name="id" value="<?=$employee["id"] ?>"/>
-	    <!--  Bouw hier de rest van je formulier   -->
+<h1 class="text-center">Edit List</h1>
+<div class="container">
+	<form method="post" action="<?=URL?>list/updateList/<?php echo $list['id'] ?>">
+		<div class="form-group">
+			<label for="" class="lead">List Name</label>
+			<input type="text" class="form-control" name="list_name" required value="<?php echo $list["list_name"]; ?>">
+		</div>
+		<input type="submit" name="submit" class="btn text-white bg-dark" value="Update">
 	</form>
+</div>

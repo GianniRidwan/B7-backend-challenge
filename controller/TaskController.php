@@ -2,17 +2,18 @@
 require(ROOT . "model/TaskModel.php");
 require(ROOT . "model/ListModel.php");
 
-function index()
-{
-    //1. Haal alle medewerkers op uit de database (via de model) en sla deze op in een variable
-    $employees = getAllEmployees();
-    //2. Geef een view weer en geef de variable met medewerkers hieraan mee
-    render('employee/index', $employees);
+function index() {
+    $getAllTasks = getAllTasks();
+    render('components/index', array("task" => $getAllTasks, "list" => getAllLists()));
 }
 
-function create(){
-    //1. Geef een view weer waarin een formulier staat voor het aanmaken van een medewerker
+function addTask() {
+    render("components/createTask");
+}
 
+function createNewTask() {
+    createTask($_POST["description"], $_POST["time"], $_POST["state"], $_POST["list_id"]);
+    header("location: index");
 }
 
 function store(){

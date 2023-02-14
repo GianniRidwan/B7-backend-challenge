@@ -4,7 +4,7 @@ require(ROOT . "model/TaskModel.php");
 
 function index() {
     $getAllLists = getAllLists();
-render('components/index', array("list" => $getAllLists));
+render('components/index', array("list" => $getAllLists, "task" => getAllTasks()));
 }
 
 function createNewList() {

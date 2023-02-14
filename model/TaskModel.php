@@ -64,9 +64,17 @@ function createTask($description, $time, $state, $list_id) {
         $conn = null;
 }
 
- function deleteEmployee($id){
-    // Maak hier de code om een medewerker te verwijderen
- }
-
-
+ function destroyT($id){
+    try {
+        $conn = openDatabaseConnection();
+        $sql = "DELETE FROM task WHERE task_id = :id";
+        $query = $conn->prepare($sql);
+        $query->bindParam(":id", $id);
+        $query->execute();
+    }
+    catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+}
 ?>

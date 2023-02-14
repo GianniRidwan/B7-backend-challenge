@@ -26,17 +26,13 @@ function updateTask($id) {
     header("location: ".URL."task/index");
 }
 
-function delete($id){
-    //1. Haal een medewerker op met een specifiek id en sla deze op in een variable
-
-    //2. Geef een view weer voor het verwijderen en geef de variable met medewerker hieraan mee
-
+function deleteTask($id) {
+    $getTask = getTask($id);
+    render("components/deleteTask", array("task" => $getTask, "list" => getAllLists()));   
 }
 
-function destroy($id){
-    //1. Delete een medewerker uit de database
-
-	//2. Bouw een url en redirect hierheen
-    
+function destroyTask($id){
+    destroyT($id);
+    header("location: ".URL."task/index");    
 }
 ?>

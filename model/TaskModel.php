@@ -1,17 +1,49 @@
 <?php
 
 function getAllTasks() {
-   try {
-       $conn = openDatabaseConnection();
-       $stmt = $conn->prepare("SELECT * FROM task");
-       $stmt->execute();
-       $result = $stmt->fetchAll();
-   }
-   catch(PDOException $e){
-       echo "Connection failed: " . $e->getMessage();
-   }
-   $conn = null;
-   return $result;
+
+    $sort = "";
+    if (isset($_GET['sortTime'])) {
+        if ($_GET['sortTime'] == "a-b") {
+            $sort = "ASC";
+        }
+        elseif ($_GET['sortTime'] == "b-a") {
+            $sort = "DESC";
+        }
+    }
+    $filter = "";
+
+    if (isset($_GET['filter'])) {
+        if ($_GET['filter'] == "open") {
+            $filter = "open";
+        }
+        elseif ($_GET['filter'] == "in progress") {
+            $filter = "in progress";
+        }
+        elseif ($_GET['filter'] == "closed") {
+            $filter = "closed";
+        }
+    }
+
+    try {
+        $conn = openDatabaseConnection();
+        if (isset($_GET['sortTime'])) {
+            $stmt = $conn->prepare("SELECT * FROM task ORDER BY time $sort");
+        }
+        elseif (isset($_GET['filter'])) {
+            $stmt = $conn->prepare("SELECT * FROM task WHERE state = '$filter'");
+        }
+        else {
+            $stmt = $conn->prepare("SELECT * FROM task");
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+    }
+    catch(PDOException $e){
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $conn = null;
+    return $result;
 }
 
 function getTask($id) {

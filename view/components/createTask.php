@@ -26,7 +26,7 @@
 	<input type="hidden" name="list_id" class="form-control" value="<?php echo $_GET['list_id'];?>">
 </div>
 
-<input type="submit" class="btn text-white bg-dark" value="Add New Task">
+<input type="submit" class="btn text-white bg-primary" value="Add New Task">
 
 </form>
 </div>

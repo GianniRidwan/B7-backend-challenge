@@ -14,6 +14,6 @@
 <body class="d-flex flex-column h-100">
 <main class="flex-shrink-0">
 <div id="container">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5 justify-content-center">
-	<span class="w-100 navbar-text bg-success font-weight-bold text-center text-white rounded"> To Do List </span>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 justify-content-center">
+	<span class="w-100 py-1 navbar-text bg-light font-weight-bold text-center text-dark rounded"> To Do List </span>
 </nav>

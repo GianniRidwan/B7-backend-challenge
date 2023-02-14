@@ -17,6 +17,6 @@
 			<option value="Closed">Closed</option>
         </select>
 	</div>
-<input type="submit" name="submit" class="btn text-white bg-dark" value="Update">
+<input type="submit" name="submit" class="btn text-white bg-primary" value="Update">
 </form>
 </div>

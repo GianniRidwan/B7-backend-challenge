@@ -1,6 +1,6 @@
 <?php
 
-function getAllLists(){
+function getAllLists() {
    try {
        $conn = openDatabaseConnection();
        $stmt = $conn->prepare("SELECT * FROM list");
@@ -14,7 +14,7 @@ function getAllLists(){
    return $result;
 }
 
-function getList($id){
+function getList($id) {
     try {
         $conn = openDatabaseConnection();
         $stmt = $conn->prepare("SELECT * FROM list WHERE id = :id");
@@ -29,7 +29,7 @@ function getList($id){
     return $result;
  }
 
-function createList($list_name){
+function createList($list_name) {
     try{
         $conn = openDatabaseConnection();
         $sql = "INSERT INTO list(list_name) VALUES(:list_name)";

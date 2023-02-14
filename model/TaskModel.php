@@ -47,9 +47,22 @@ function createTask($description, $time, $state, $list_id) {
  }
 
 
- function updateEmployee($data){
-    // Maak hier de code om een medewerker te bewerken
- }
+ function updateT($id, $description, $time, $state) {
+    try{
+        $conn = openDatabaseConnection();
+        $sql = "UPDATE task SET description = :description, time = :time, state = :state WHERE task_id = :id";
+        $query = $conn->prepare($sql);
+        $query->bindParam(":id", $id);
+        $query->bindParam(":description", $description);
+        $query->bindParam(":time", $time);
+        $query->bindParam(":state", $state);
+        $query->execute();
+      }
+      catch(PDOException $e){
+        echo "Connection failed: " . $e->getMessage();
+    }
+        $conn = null;
+}
 
  function deleteEmployee($id){
     // Maak hier de code om een medewerker te verwijderen

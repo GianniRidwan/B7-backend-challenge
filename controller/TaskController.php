@@ -16,25 +16,14 @@ function createNewTask() {
     header("location: index");
 }
 
-function store(){
-    //1. Maak een nieuwe medewerker aan met de data uit het formulier en sla deze op in de database
-
-    //2. Bouw een url op en redirect hierheen
-
+function editTask($id) {
+    $getTask = getTask($id);
+    render("components/updateTask", array("task" => $getTask, "list" => getAllLists()));
 }
 
-function edit($id){
-    //1. Haal een medewerker op met een specifiek id en sla deze op in een variable
-
-    //2. Geef een view weer voor het updaten en geef de variable met medewerker hieraan mee
-
-}
-
-function update(){
-    //1. Update een bestaand persoon met de data uit het formulier en sla deze op in de database
-
-    //2. Bouw een url en redirect hierheen
-
+function updateTask($id) {
+    updateT($id, $_POST["description"], $_POST["time"], $_POST["state"], $_POST["list_id"]);
+    header("location: ".URL."task/index");
 }
 
 function delete($id){
